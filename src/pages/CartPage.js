@@ -24,7 +24,8 @@ function CartPage({
                   <img
                     src={item.image}
                     alt={item.name}
-                    style={{ width: "150px" }}
+                    className=" img-fluid rounded"
+                    style={{ maxHeight: "120px", objectFit: "cover" }}
                   />
                 </div>
 
@@ -71,9 +72,9 @@ function CartPage({
             <h3>Cart Total: ${total.toFixed(2)}</h3>
 
             <Link to="/checkout">
-            <button className="btn btn-success mt-2">
-              Proceed to Checkout
-            </button>
+              <button className="btn btn-success mt-2">
+                Proceed to Checkout
+              </button>
             </Link>
           </div>
         </>

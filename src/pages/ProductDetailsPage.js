@@ -147,7 +147,7 @@ function ProductDetailsPage({ addToCart }) {
       </form>
 
       <div>
-        {reviews.rating === 0 ? (
+        {reviews.length === 0 ? (
           <p>No Reviews</p>
         ) : (
           reviews.map((review, index) => (
@@ -161,7 +161,7 @@ function ProductDetailsPage({ addToCart }) {
 
       <div className=" row mt-3">
         {relatedProducts.map((item) => (
-          <div className=" col-md-4 mb-4">
+          <div key={item.id} className=" col-md-4 mb-4">
             <ProductCard product={item} />
           </div>
         ))}

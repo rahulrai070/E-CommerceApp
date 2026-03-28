@@ -26,6 +26,10 @@ function App() {
     localStorage.setItem("orders", JSON.stringify(orders));
   }, [orders]);
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   const addToCart = (product, quantity = 1) => {
     const existingProduct = cart.find((item) => item.id === product.id);
 
@@ -38,7 +42,7 @@ function App() {
         ),
       );
     } else {
-      setCart([...cart, { ...product, quantity }]);
+      setCart((prevCart) => [...prevCart, { ...product, quantity }]);
     }
   };
 

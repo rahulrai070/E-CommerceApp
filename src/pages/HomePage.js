@@ -40,13 +40,13 @@ function HomePage() {
     },
     {
       id: 5,
-      name: "slippers",
+      name: "Slippers",
       price: 90,
       image: Slippers,
     },
     {
       id: 6,
-      name: "Smart_Phone",
+      name: "Smart Phone",
       price: 1000,
       image: Phone,
     },
@@ -64,21 +64,31 @@ function HomePage() {
     },
     {
       id: 9,
-      name: "Office-Shoes",
+      name: "Office Shoes",
       price: 100,
       image: OfficeShoes,
     },
   ];
 
   return (
-    <div className="container mt-4 g-4">
-      <div className="bg-dark text-white text-center p-5 rounded mb-5">
-        <h1 className=" display-4">Welcome to MyStore</h1>
-        <p className=" lead">Best Deals on Fashion & Electronics</p>
+    <div className="container py-5">
+      <div
+        className="text-white d-flex align-items-center justify-content-center rounded mb-5"
+        style={{
+          backgroundImage: `url(${Watch})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "300px",
+        }}
+      >
+        <div className="text-center bg-dark  bg-opacity-50 p-4 rounded">
+          <h1 className="display-4">Welcome to MyStore</h1>
+          <p className="lead">Best Deals on Fashion & Electronics</p>
 
-        <Link to="/products" className="btn btn-warning btn-lg mt-3">
-          Shop Now
-        </Link>
+          <Link to="/products" className="btn btn-warning btn-lg mt-3">
+            Shop Now
+          </Link>
+        </div>
       </div>
 
       <h2 className="mb-4 text-center">Featured Products</h2>
@@ -95,15 +105,24 @@ function HomePage() {
 
       <div className="row text-center">
         <div className=" col-md-4 mb-3">
-          <div className=" card p-4 shadow-sm">Clothing</div>
+          <div className=" card p-4 shadow-sm h-100">
+            <h5 className=" fw-bold">Clothing</h5>
+            <p className=" text-muted">Trendy outfit</p>
+          </div>
         </div>
 
         <div className=" col-md-4 mb-3">
-          <div className=" card p-4 shadow-sm">Shoes</div>
+          <div className=" card p-4 shadow-sm h-100">
+            <h5 className=" fw-bold">Shoes</h5>
+            <p className=" text-muted">Comfortable & Style</p>
+          </div>
         </div>
 
         <div className=" col-md-4 mb-3">
-          <div className=" card p-4 shadow-sm">Electronics</div>
+          <div className=" card p-4 shadow-sm h-100">
+            <h5 className=" fw-bold">Electronics</h5>
+            <p className=" text-muted">Latest gadgets</p>
+          </div>
         </div>
       </div>
     </div>

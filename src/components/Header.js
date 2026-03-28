@@ -7,7 +7,7 @@ function Header({ cart }) {
     0,
   );
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
       <div className="container">
         <Link className="navbar-brand fw-bold" to="/">
           MyStore
@@ -53,7 +53,6 @@ function Header({ cart }) {
                 Orders
               </Link>
             </li>
-
           </ul>
         </div>
       </div>

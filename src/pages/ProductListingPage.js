@@ -7,7 +7,7 @@ function ProductListingPage() {
   const [category, setCategory] = useState("All");
   const [sortOption, setSortOption] = useState("default");
 
-  const categories = ["All", "Shoes", "Clothing", "Accessories"];
+  const categories = ["All", "Shoes", "Clothing", "Accessories", "Electronics"];
 
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.name

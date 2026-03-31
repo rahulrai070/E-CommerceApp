@@ -14,7 +14,7 @@ function ProductCard({ product }) {
 
   return (
     <div className="card h-100 shadow-sm border-0">
-      <div className=" overflow-hidden " style={{height: "200px"}}>
+      <div className=" overflow-hidden " style={{ height: "200px" }}>
         <img
           src={product.image}
           alt={product.name}
@@ -28,7 +28,10 @@ function ProductCard({ product }) {
 
         <p className=" text-success fw-bold fs-5 mb-2">${product.price}</p>
 
-        <Link to={`/product/${product.id}`} className="btn btn-outline-dark mt-auto">
+        <Link
+          to={`/product/${product.id}`}
+          className="btn btn-outline-dark mt-auto"
+        >
           View Details
         </Link>
       </div>

@@ -14,7 +14,8 @@ const products = [
     name: "Running Shoes",
     price: 70,
     image: RunningShoes,
-    description: "Comfortable and lightweight running shoes perfect for daily workouts and jogging.",
+    description:
+      "Comfortable and lightweight running shoes perfect for daily workouts and jogging.",
     category: "Shoes",
     rating: 4,
   },
@@ -23,7 +24,8 @@ const products = [
     name: "T-Shirt",
     price: 20,
     image: Tshirt,
-    description: "Soft cotton t-shirt designed for comfort and casual everyday wear.",
+    description:
+      "Soft cotton t-shirt designed for comfort and casual everyday wear.",
     category: "Clothing",
     rating: 5,
   },
@@ -32,7 +34,8 @@ const products = [
     name: "Watch",
     price: 100,
     image: Watch,
-    description: "Elegant wrist watch with a modern design, suitable for both formal and casual occasions.",
+    description:
+      "Elegant wrist watch with a modern design, suitable for both formal and casual occasions.",
     category: "Accessories",
     rating: 3,
   },
@@ -41,7 +44,8 @@ const products = [
     name: "Smart Watch",
     price: 250,
     image: SmartWatch,
-    description: "Advanced smartwatch with fitness tracking, notifications, and long battery life.",
+    description:
+      "Advanced smartwatch with fitness tracking, notifications, and long battery life.",
     category: "Electronics",
     rating: 5,
   },
@@ -50,7 +54,8 @@ const products = [
     name: "Slippers",
     price: 90,
     image: Slippers,
-    description: "Comfortable indoor slippers with soft cushioning for daily use at home.",
+    description:
+      "Comfortable indoor slippers with soft cushioning for daily use at home.",
     category: "Shoes",
     rating: 4,
   },
@@ -59,7 +64,8 @@ const products = [
     name: "Smart Phone",
     price: 1000,
     image: Phone,
-    description: "High-performance smartphone with a stunning display, fast processor, and great camera.",
+    description:
+      "High-performance smartphone with a stunning display, fast processor, and great camera.",
     category: "Electronics",
     rating: 5,
   },
@@ -68,7 +74,8 @@ const products = [
     name: "Jeans",
     price: 30,
     image: Jeans,
-    description: "Durable denim jeans with a stylish fit, perfect for casual and semi-formal wear.",
+    description:
+      "Durable denim jeans with a stylish fit, perfect for casual and semi-formal wear.",
     category: "Clothing",
     rating: 4,
   },
@@ -77,7 +84,8 @@ const products = [
     name: "Cotton Shirt",
     price: 45,
     image: Shirt,
-    description: "Breathable cotton shirt with a clean design, ideal for office and casual use.",
+    description:
+      "Breathable cotton shirt with a clean design, ideal for office and casual use.",
     category: "Clothing",
     rating: 4,
   },
@@ -86,7 +94,8 @@ const products = [
     name: "Office Shoes",
     price: 100,
     image: OfficeShoes,
-    description: "Formal office shoes with a polished finish, designed for comfort and style.",
+    description:
+      "Formal office shoes with a polished finish, designed for comfort and style.",
     category: "Shoes",
     rating: 5,
   },

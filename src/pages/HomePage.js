@@ -11,6 +11,7 @@ import Slippers from "../components/Images/sketchers.png";
 import Phone from "../components/Images/phone.png";
 import OfficeShoes from "../components/Images/OfficeShoes.webp";
 import Jeans from "../components/Images/Jeans.webp";
+import Cover from "../components/Images/CoverImage.avif";
 
 function HomePage() {
   const products = [
@@ -32,7 +33,7 @@ function HomePage() {
         className="position-relative rounded overflow-hidden d-flex align-items-center justify-content-center text-center mb-5"
         style={{
           height: "300px",
-          backgroundImage: `url(${Watch})`,
+          backgroundImage: `url(${Cover})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -45,7 +46,7 @@ function HomePage() {
           <h1 className="display-5 fw-bold">Welcome to MyStore</h1>
           <p className="lead">Best Deals on Fashion & Electronics</p>
 
-          <Link to="/products" className="btn btn-warning btn-lg px-4 shadow">
+          <Link to="/products" className="btn btn-warning btn-lg mt-3 px-5 shadow">
             Shop Now
           </Link>
         </div>

@@ -46,7 +46,10 @@ function HomePage() {
           <h1 className="display-5 fw-bold">Welcome to MyStore</h1>
           <p className="lead">Best Deals on Fashion & Electronics</p>
 
-          <Link to="/products" className="btn btn-warning btn-lg mt-3 px-5 shadow">
+          <Link
+            to="/products"
+            className="btn btn-warning btn-lg mt-3 px-5 shadow"
+          >
             Shop Now
           </Link>
         </div>

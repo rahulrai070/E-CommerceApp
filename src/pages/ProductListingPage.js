@@ -6,6 +6,7 @@ function ProductListingPage() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [sortOption, setSortOption] = useState("default");
+  const [priceRange, setPriceRange] = useState(1000);
 
   const categories = ["All", "Shoes", "Clothing", "Accessories", "Electronics"];
 
@@ -15,7 +16,8 @@ function ProductListingPage() {
       .includes(search.toLowerCase());
 
     const matchesCategory = category === "All" || product.category === category;
-    return matchesSearch && matchesCategory;
+    const matchesPrice = product.price <= priceRange;
+    return matchesSearch && matchesCategory && matchesPrice;
   });
 
   let sortedProducts = [...filteredProducts];
@@ -34,53 +36,78 @@ function ProductListingPage() {
 
   return (
     <div className="container mt-4">
-      <h1 className=" mb-4">All Products</h1>
+      <h1 className=" mb-4 fw-bold">All Products</h1>
+      <div className=" card p-4 mb-4 shadow-sm">
+        <div className="mb-3 d-flex flex-wrap">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={` btn me-2 mb-2 ${
+                category === cat ? "btn-dark" : "btn-outline-dark"
+              }`}
+              onClick={() => setCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
 
-      <div className="mb-3">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            className="btn btn-outline-dark me-2"
-            onClick={() => setCategory(cat)}
+      <div className="row mb-4">
+        <div className="col-md-6 mb-2">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search products..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+
+        <div className="col-md-6 mb-2">
+          <select
+            className="form-select"
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
           >
-            {cat}
-          </button>
-        ))}
+            <option value="default">Sort By</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
       </div>
 
-      <input
-        type="text"
-        className="form-control mb-3"
-        placeholder="Search Products..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <div className="mt-3">
+        <div className="d-flex justify-content-between align-items-center mb-2">
+          <span className="fw-bold">Price Range</span>
+          <span className="text-primary fw-bold">${priceRange}</span>
+        </div>
 
-      <div className="mb-4">
-        <label className="form-label fw-bold me-2">Sort By:</label>
-
-        <select
-          className="form-select"
-          style={{ maxWidth: "250px" }}
-          value={sortOption}
-          onChange={(e) => setSortOption(e.target.value)}
-        >
-          <option value="default">Default</option>
-          <option value="low-high">Price: Low to High</option>
-          <option value="high-low">Price: High to Low</option>
-          <option value="rating">Top Rated</option>
-        </select>
+        <input
+          type="range"
+          className="form-range"
+          min="0"
+          max="1000"
+          value={priceRange}
+          onChange={(e) => setPriceRange(e.target.value)}
+        />
       </div>
+
+      <p className=" text-muted">Showing {sortedProducts.length} products</p>
+      <div />
 
       <div className="row">
         {sortedProducts.length > 0 ? (
           sortedProducts.map((product) => (
-            <div key={product.id} className="col-md-4 mb-4">
+            <div key={product.id} className="col-lg-3 col-md-4 col-sm-6 mb-4">
               <ProductCard product={product} />
             </div>
           ))
         ) : (
-          <p>No products found.</p>
+          <p className=" text-center text-muted mt-4">
+            No products found 😢 Try adjusting filters
+          </p>
         )}
       </div>
     </div>

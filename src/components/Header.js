@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Header({ cart }) {
-  const totalItems = cart.reduce(
+  const totalItems = (cart || []).reduce(
     (total, item) => total + (item.quantity || 1),
     0,
   );

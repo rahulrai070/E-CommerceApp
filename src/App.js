@@ -11,6 +11,9 @@ import CheckoutPage from "./pages/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import OrderHistoryPage from "./pages/OrderHistoryPage";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
@@ -69,37 +72,45 @@ function App() {
   };
 
   return (
-    <Router>
-      <Header cart={cart} />
+    <>
+      <Router>
+        <Header cart={cart} />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<ProductListingPage />} />
-        <Route
-          path="/cart"
-          element={
-            <CartPage
-              cart={cart}
-              removeFromCart={removeFromCart}
-              increaseQuantity={increaseQuantity}
-              decreaseQuantity={decreaseQuantity}
-            />
-          }
-        />
-        <Route
-          path="/product/:id"
-          element={<ProductDetailsPage addToCart={addToCart} />}
-        />
-        <Route
-          path="/checkout"
-          element={
-            <CheckoutPage cart={cart} setCart={setCart} setOrders={setOrders} />
-          }
-        />
-        <Route path="/order-success" element={<OrderSuccessPage />} />
-        <Route path="orders" element={<OrderHistoryPage orders={orders} />} />
-      </Routes>
-    </Router>
+        <Routes>
+          <Route path="/" element={<HomePage addToCart={addToCart}/>} />
+          <Route path="/products" element={<ProductListingPage addToCart={addToCart}/>} />
+          <Route
+            path="/cart"
+            element={
+              <CartPage
+                cart={cart}
+                removeFromCart={removeFromCart}
+                increaseQuantity={increaseQuantity}
+                decreaseQuantity={decreaseQuantity}
+              />
+            }
+          />
+          <Route
+            path="/product/:id"
+            element={<ProductDetailsPage addToCart={addToCart} />}
+          />
+          <Route
+            path="/checkout"
+            element={
+              <CheckoutPage
+                cart={cart}
+                setCart={setCart}
+                setOrders={setOrders}
+              />
+            }
+          />
+          <Route path="/order-success" element={<OrderSuccessPage />} />
+          <Route path="orders" element={<OrderHistoryPage orders={orders} />} />
+        </Routes>
+      </Router>
+
+      <ToastContainer position="top-right" autoClose={2000} />
+    </>
   );
 }
 

@@ -3,7 +3,7 @@ import products from "../data/products";
 import ProductCard from "../components/ProductCard";
 import { useLocation } from "react-router-dom";
 
-function ProductListingPage() {
+function ProductListingPage({ addToCart }) {
   const [search, setSearch] = useState("");
 
   const location = useLocation();
@@ -108,7 +108,7 @@ function ProductListingPage() {
         {sortedProducts.length > 0 ? (
           sortedProducts.map((product) => (
             <div key={product.id} className="col-lg-3 col-md-4 col-sm-6 mb-4">
-              <ProductCard product={product} />
+              <ProductCard product={product} addToCart={addToCart} />
             </div>
           ))
         ) : (

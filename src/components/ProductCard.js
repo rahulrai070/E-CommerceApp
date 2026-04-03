@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
-function ProductCard({ product }) {
+function ProductCard({ product, addToCart }) {
   const renderStars = (rating = 0) => {
     let stars = "";
 
@@ -28,12 +29,24 @@ function ProductCard({ product }) {
 
         <p className=" text-success fw-bold fs-5 mb-2">${product.price}</p>
 
-        <Link
-          to={`/product/${product.id}`}
-          className="btn btn-outline-dark mt-auto"
-        >
-          View Details
-        </Link>
+        <div className="mt-auto">
+          <button
+            className="btn btn-dark w-100 mb-2"
+            onClick={() => {
+              addToCart(product);
+              toast.success(`${product.name} added to cart 🛒`);
+            }}
+          >
+            Add to Cart
+          </button>
+
+          <Link
+            to={`/product/${product.id}`}
+            className="btn btn-outline-dark w-100"
+          >
+            View Details
+          </Link>
+        </div>
       </div>
     </div>
   );

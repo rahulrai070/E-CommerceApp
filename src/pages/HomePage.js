@@ -13,7 +13,7 @@ import OfficeShoes from "../components/Images/OfficeShoes.webp";
 import Jeans from "../components/Images/Jeans.webp";
 import Cover from "../components/Images/CoverImage.avif";
 
-function HomePage() {
+function HomePage({ addToCart }) {
   const products = [
     { id: 1, name: "Running Shoes", price: 70, image: RunningShoes },
     { id: 2, name: "T-Shirt", price: 20, image: Tshirt },
@@ -61,7 +61,7 @@ function HomePage() {
       <div className="row">
         {products.slice(0, 4).map((product) => (
           <div className="col-md-3 col-sm-6 mb-4" key={product.id}>
-            <ProductCard product={product} />
+            <ProductCard product={product} addToCart={addToCart} />
           </div>
         ))}
       </div>

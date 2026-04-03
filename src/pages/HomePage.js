@@ -71,24 +71,39 @@ function HomePage() {
 
       <div className="row text-center">
         <div className="col-md-4 mb-3">
-          <div className="card p-4 shadow-sm h-100">
-            <h4>👕 Clothing</h4>
-            <p className="text-muted">Trendy and comfortable outfits</p>
-          </div>
+          <Link
+            to="/products?category=Clothing"
+            className=" text-decoration-none text-dark"
+          >
+            <div className="card p-4 shadow-sm h-100">
+              <h4>👕 Clothing</h4>
+              <p className="text-muted">Trendy and comfortable outfits</p>
+            </div>
+          </Link>
         </div>
 
         <div className="col-md-4 mb-3">
-          <div className="card p-4 shadow-sm h-100">
-            <h4>👟 Shoes</h4>
-            <p className="text-muted">Stylish and durable footwear</p>
-          </div>
+          <Link
+            to="/products?category=Shoes"
+            className=" text-decoration-none text-dark"
+          >
+            <div className="card p-4 shadow-sm h-100">
+              <h4>👟 Shoes</h4>
+              <p className="text-muted">Stylish and durable footwear</p>
+            </div>
+          </Link>
         </div>
 
         <div className="col-md-4 mb-3">
-          <div className="card p-4 shadow-sm h-100">
-            <h4>📱 Electronics</h4>
-            <p className="text-muted">Latest gadgets and devices</p>
-          </div>
+          <Link
+            to="/products?category=Electronics"
+            className=" text-decoration-none text-dark"
+          >
+            <div className="card p-4 shadow-sm h-100">
+              <h4>📱 Electronics</h4>
+              <p className="text-muted">Latest gadgets and devices</p>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

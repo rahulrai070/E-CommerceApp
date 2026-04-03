@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import products from "../data/products";
 import ProductCard from "../components/ProductCard";
+import { useLocation } from "react-router-dom";
 
 function ProductListingPage() {
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("All");
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const initialCategory = queryParams.get("category") || "All";
+
+  const [category, setCategory] = useState(initialCategory);
+
   const [sortOption, setSortOption] = useState("default");
   const [priceRange, setPriceRange] = useState(1000);
 

@@ -5,16 +5,28 @@ function OrderSuccessPage() {
   const orderId = Math.floor(Math.random() * 100000);
 
   return (
-    <div className="container mt-5 text-center">
-      <h1 className="text-success">✅ Order Placed Successfully</h1>
+    <div className="container d-flex justify-content-center align-items-center vh-100">
+      <div className="card p-5 text-center shadow border-0 success-card">
+        
+        <div className="mb-4">
+          <span className="display-1 text-success">✔</span>
+        </div>
 
-      <p className="mt-3">Thank you for shopping with us.</p>
+        
+        <h2 className="fw-bold text-success">Order Placed Successfully!</h2>
 
-      <h4 className=" mt-3">Order ID: {orderId}</h4>
-      <Link to="/" className="btn btn-primary mt-4">
-        Continue Shopping
-      </Link>
-      
+        <p className="text-muted mt-3">Thank you for shopping with us 🎉</p>
+
+        
+        <h5 className="mt-3">
+          Order ID: <span className="text-primary">#{orderId}</span>
+        </h5>
+
+        {/* BUTTON */}
+        <Link to="/" className="btn btn-dark mt-4 px-4 py-2">
+          Continue Shopping
+        </Link>
+      </div>
     </div>
   );
 }

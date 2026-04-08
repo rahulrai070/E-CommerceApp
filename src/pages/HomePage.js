@@ -60,7 +60,7 @@ function HomePage({ addToCart }) {
 
       <div className="row">
         {products.slice(0, 4).map((product) => (
-          <div className="col-md-3 col-sm-6 mb-4" key={product.id}>
+          <div className="col-6 col-md-4 col-lg-3 mb-4" key={product.id}>
             <ProductCard product={product} addToCart={addToCart} />
           </div>
         ))}

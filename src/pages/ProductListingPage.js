@@ -107,7 +107,7 @@ function ProductListingPage({ addToCart }) {
       <div className="row">
         {sortedProducts.length > 0 ? (
           sortedProducts.map((product) => (
-            <div key={product.id} className="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div key={product.id} className="col-6 col-lg-3 col-md-4 mb-4">
               <ProductCard product={product} addToCart={addToCart} />
             </div>
           ))

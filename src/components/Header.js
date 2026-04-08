@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header({ cart }) {
   const totalItems = (cart || []).reduce(
@@ -9,9 +9,9 @@ function Header({ cart }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
       <div className="container">
-        <Link className="navbar-brand fw-bold" to="/">
+        <NavLink className="navbar-brand fw-bold" to="/">
           MyStore
-        </Link>
+        </NavLink>
 
         <button
           className=" navbar-toggler"
@@ -23,35 +23,35 @@ function Header({ cart }) {
         </button>
 
         <div className=" collapse navbar-collapse" id="navbarNav">
-          <ul className=" navbar-nav ms-auto align-items-center">
+          <ul className=" navbar-nav ms-auto align-items-lg-center gap-lg-3 text-center text-lg-start">
             <li className=" nav-item">
-              <Link className=" nav-link" to="/">
+              <NavLink className=" nav-link" to="/">
                 Home
-              </Link>
+              </NavLink>
             </li>
 
             <li className=" nav-item">
-              <Link className=" nav-link" to="/products">
+              <NavLink className=" nav-link" to="/products">
                 Products
-              </Link>
+              </NavLink>
             </li>
 
             <li className=" nav-item position-relative">
-              <Link className=" nav-link" to="/cart">
-                Cart 🛒
-              </Link>
+              <NavLink className=" nav-link" to="/cart">
+                Cart <span className=" ms-1">🛒</span>
+              </NavLink>
 
               {totalItems > 0 && (
-                <span className=" position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <span className=" position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
                   {totalItems}
                 </span>
               )}
             </li>
 
             <li className="nav-item">
-              <Link className=" nav-link" to="/orders">
+              <NavLink className=" nav-link" to="/orders">
                 Orders
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

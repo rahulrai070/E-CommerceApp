@@ -64,6 +64,28 @@ code {
   transition: all 0.3s ease;
 }
 
+.cart-badge {
+  font-size: 10px;
+  padding: 5px 6px;
+}
+
+.navbar {
+  padding: 10px 0;
+}
+
+.nav-link {
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #ffc107 !important;
+}
+
+.nav-link.active {
+  color: #ffc107 !important;
+  font-weight: bold;
+}
+
 button {
   transition: all 0.2s ease;
 }

@@ -1,62 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Header({ cart }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   const totalItems = (cart || []).reduce(
     (total, item) => total + (item.quantity || 1),
     0,
   );
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
-      <div className="container">
-        <NavLink className="navbar-brand fw-bold" to="/">
-          MyStore
-        </NavLink>
+    <>
+      <nav className="navbar navbar-dark bg-dark sticky-top shadow-sm">
+        <div className="container d-flex justify-content-between align-items-center">
+          <NavLink className="navbar-brand fw-bold" to="/">
+            MyStore
+          </NavLink>
 
-        <button
-          className=" navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          {/* Mobile Toggle Button */}
+          <button
+            className="navbar-toggler d-lg-none"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-        <div className=" collapse navbar-collapse" id="navbarNav">
-          <ul className=" navbar-nav ms-auto align-items-lg-center gap-lg-3 text-center text-lg-start">
-            <li className=" nav-item">
-              <NavLink className=" nav-link" to="/">
+          {/* Desktop Menu */}
+          <ul className="navbar-nav d-none d-lg-flex flex-row gap-4 ms-auto">
+            <li>
+              <NavLink className="nav-link" to="/">
                 Home
               </NavLink>
             </li>
-
-            <li className=" nav-item">
-              <NavLink className=" nav-link" to="/products">
+            <li>
+              <NavLink className="nav-link" to="/products">
                 Products
               </NavLink>
             </li>
 
-            <li className=" nav-item position-relative">
-              <NavLink className=" nav-link" to="/cart">
-                Cart <span className=" ms-1">🛒</span>
+            <li className="position-relative">
+              <NavLink className="nav-link" to="/cart">
+                Cart 🛒
               </NavLink>
-
               {totalItems > 0 && (
-                <span className=" position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
-                  {totalItems}
-                </span>
+                <span className="badge bg-danger cart-badge">{totalItems}</span>
               )}
             </li>
 
-            <li className="nav-item">
-              <NavLink className=" nav-link" to="/orders">
+            <li>
+              <NavLink className="nav-link" to="/orders">
                 Orders
               </NavLink>
             </li>
           </ul>
         </div>
+      </nav>
+
+      {/* Mobile Sidebar */}
+      <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
+        <NavLink to="/" className="nav-link" onClick={() => setIsOpen(false)}>
+          Home
+        </NavLink>
+        <NavLink
+          to="/products"
+          className="nav-link"
+          onClick={() => setIsOpen(false)}
+        >
+          Products
+        </NavLink>
+        <NavLink
+          to="/cart"
+          className="nav-link"
+          onClick={() => setIsOpen(false)}
+        >
+          Cart 🛒
+        </NavLink>
+        <NavLink
+          to="/orders"
+          className="nav-link"
+          onClick={() => setIsOpen(false)}
+        >
+          Orders
+        </NavLink>
       </div>
-    </nav>
+
+      {isOpen && (
+        <div className=" menu-overlay" onClick={() => setIsOpen(false)}
+        ></div>
+      )}
+    </>
   );
 }
 

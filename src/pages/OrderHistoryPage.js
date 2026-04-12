@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-function OrderHistoryPage({ orders }) {
+function OrderHistoryPage({ orders, setOrders }) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOrders((prevOrders) =>
+        prevOrders.map((order) => {
+          if (order.status === "pending") {
+            return { ...order, status: "Processing" };
+          }
+          if (order.status === "Processing") {
+            return { ...order, status: "Delivered" };
+          }
+          return order;
+        }),
+      );
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [orders, setOrders]);
+
   if (!orders || orders.length === 0) {
     return (
       <div className="container mt-5 text-center">
@@ -21,10 +39,19 @@ function OrderHistoryPage({ orders }) {
 
         return (
           <div key={index} className="card shadow-sm border-0 mb-4 p-3">
-            <div className="d-flex justify-content-between mb-2">
+            <div className="d-flex justify-content-between align-items-center mb-2">
               <h5 className="fw-bold">Order #{order.id}</h5>
-              <span className="text-muted">
-                {new Date().toLocaleDateString()}
+
+              <span
+                className={`badge ${
+                  order.status === "Pending"
+                    ? "bg-warning text-dark"
+                    : order.status === "Processing"
+                      ? "bg-info"
+                      : "bg-success"
+                }`}
+              >
+                {order.status}
               </span>
             </div>
 

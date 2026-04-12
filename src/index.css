@@ -1,8 +1,11 @@
+/* =========================
+  GLOBAL STYLES
+========================= */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,30 +15,47 @@ code {
     monospace;
 }
 
-/* Product Card Style */
 
-.products-grid{
+/* =========================
+  PRODUCT GRID
+========================= */
+.products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
-.row {
-  margin-left: -8px;
-  margin-right: 8px;
+/* Responsive Grid */
+@media (max-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.col-6 {
-  padding-left: 8px;
-  padding-right: 8px;
+@media (max-width: 576px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 }
 
-.product-card{
+
+/* =========================
+  PRODUCT CARD
+========================= */
+.product-card {
   border: 1px solid #ddd;
   padding: 15px;
   text-align: center;
   border-radius: 8px;
   background: white;
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
 .product-card h5 {
@@ -46,36 +66,45 @@ code {
   font-size: 13px;
 }
 
-.product-card button  {
+.product-card button {
   font-size: 14px;
   padding: 6px;
 }
 
-.product-card img{
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
+
+/* Card Hover Animation */
+.card {
+  transition: all 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
-.card {
-  transition: all 0.3s ease;
+
+
+/* =========================
+  CART BADGE
+========================= */
+.cart-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .cart-badge {
-  font-size: 10px;
-  padding: 5px 6px;
-  position: absolute;
-  top: 5px;
-  right: 10px;
+  background: #dc3545;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 7px;
+  border-radius: 12px;
+  line-height: 1;
 }
 
-/* NavBar Style */
 
+/* =========================
+  NAVBAR
+========================= */
 .navbar {
   padding: 10px 0;
 }
@@ -93,8 +122,10 @@ code {
   font-weight: bold;
 }
 
-/* Mobile-menu style */
 
+/* =========================
+  MOBILE MENU (SIDEBAR)
+========================= */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -103,9 +134,8 @@ code {
   height: 100vh;
   background: #212529;
   padding-top: 70px;
-  transition: 0.3s;
+  transition: left 0.3s ease;
   z-index: 1050;
-  transition: left 0,3s ease;
 }
 
 .mobile-menu.open {
@@ -119,6 +149,19 @@ code {
   font-size: 18px;
 }
 
+/* Hide mobile menue on desktop */
+@media (min-width: 992px) {
+  .mobile-menu {
+    display: none;
+  }
+
+  .menu-overlay {
+    display: none;
+  }
+}
+
+
+/* Overlay */
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -129,8 +172,10 @@ code {
   z-index: 1040;
 }
 
-/* Button Style and Form */
 
+/* =========================
+  BUTTONS & FORMS
+========================= */
 button {
   transition: all 0.2s ease;
 }
@@ -144,6 +189,10 @@ button:hover {
   border-color: #000;
 }
 
+
+/* =========================
+  ANIMATIONS
+========================= */
 .success-card {
   animation: fadeInUp 0.6s ease;
 }
@@ -153,9 +202,9 @@ button:hover {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-

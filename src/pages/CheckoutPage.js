@@ -13,6 +13,7 @@ function CheckoutPage({ cart, setCart, setOrders }) {
 
     const newOrder = {
       id: Math.floor(Math.random() * 100000),
+      status: "Pending",
       customer: {
         name,
         email,

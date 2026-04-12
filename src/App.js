@@ -77,8 +77,11 @@ function App() {
         <Header cart={cart} />
 
         <Routes>
-          <Route path="/" element={<HomePage addToCart={addToCart}/>} />
-          <Route path="/products" element={<ProductListingPage addToCart={addToCart}/>} />
+          <Route path="/" element={<HomePage addToCart={addToCart} />} />
+          <Route
+            path="/products"
+            element={<ProductListingPage addToCart={addToCart} />}
+          />
           <Route
             path="/cart"
             element={
@@ -105,7 +108,10 @@ function App() {
             }
           />
           <Route path="/order-success" element={<OrderSuccessPage />} />
-          <Route path="orders" element={<OrderHistoryPage orders={orders} />} />
+          <Route
+            path="orders"
+            element={<OrderHistoryPage orders={orders} setOrders={setOrders} />}
+          />
         </Routes>
       </Router>
 

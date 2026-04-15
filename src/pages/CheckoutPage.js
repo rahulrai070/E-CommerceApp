@@ -13,7 +13,6 @@ function CheckoutPage({ cart, setCart, setOrders }) {
 
     const newOrder = {
       id: Math.floor(Math.random() * 100000),
-      status: "Pending",
       customer: {
         name,
         email,
@@ -21,6 +20,8 @@ function CheckoutPage({ cart, setCart, setOrders }) {
         payment,
       },
       items: cart,
+      status: "Pending",
+      date: new Date().toTimeString(),
     };
 
     setOrders((prevOrders) => [...prevOrders, newOrder]);

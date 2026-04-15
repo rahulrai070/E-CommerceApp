@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 
 function OrderHistoryPage({ orders, setOrders }) {
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const interval = setInterval(() => {
       setOrders((prevOrders) =>
         prevOrders.map((order) => {
-          if (order.status === "pending") {
+          if (order.status === "Pending") {
             return { ...order, status: "Processing" };
           }
           if (order.status === "Processing") {
@@ -16,8 +16,8 @@ function OrderHistoryPage({ orders, setOrders }) {
       );
     }, 5000);
 
-    return () => clearTimeout(timer);
-  }, [orders, setOrders]);
+    return () => clearInterval(interval);
+  }, [setOrders]);
 
   if (!orders || orders.length === 0) {
     return (
